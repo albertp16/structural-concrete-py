@@ -1,24 +1,24 @@
-from distutils.errors import LibError
-from setuptools import setup, find_packages
+import setuptools
+long_desc = open("README.md").read()
+required = [<Dependent Packages>] # Comma seperated dependent libraries name
 
-classifers = [
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Education',
-    'Operation System :: Microsoft :: Windows :: Windows 10',   
-    'License :: OSI Approved :: MIT License',
-    'Programming Language :: Python :: 3'       
-]
-
-setup(
-    name='albertpamonag',
-    version='0.0.1',
-    description='testing',
-    long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
-    url='',
-    author='Albert Pamonag',
-    author_email='albertpamonag@gmail.com',
-    license='MIT',
-    classifiers=classifers
-    keywords='concrete',
-    packages= find_packages()
+setuptools.setup(
+    name="<PACKAGE_NAME>",
+    version="<VERSION_NUMBER>", # eg:1.0.0
+    author="<YOUR NAME>",
+    author_email="<YOUR EMAIL>",
+    license="<YOUR_LICENSE>",
+    description="<SHORT DESCRIPTION>",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="<PACKAGE GITHUB URL>",
+    packages = ['<YOUR_PACKAGE_NAME>'],
+    # project_urls is optional
+    project_urls={
+        "Bug Tracker": "<BUG_TRACKER_URL>",
+    },
+    key_words="<KEY WORDS>",
+    install_requires=required,
+    packages=setuptools.find_packages(where="src"),
+    python_requires=">=3.6",
 )
